@@ -15,7 +15,11 @@ class CreateTachygraphesTable extends Migration
     {
         Schema::create('tachygraphes', function (Blueprint $table) {
             $table->id();
+            $table->date('tchygraphe');
+            $table->text('Observation');
             $table->timestamps();
+            $table->foreignId('vhl_id')->nullable()
+            ->constrained()->cascadeOnDelete()->cascadeOnUpdate();
         });
     }
 

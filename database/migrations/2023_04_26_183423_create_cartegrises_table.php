@@ -15,7 +15,11 @@ class CreateCartegrisesTable extends Migration
     {
         Schema::create('cartegrises', function (Blueprint $table) {
             $table->id();
+            $table->date('cartegrise');
+            $table->text('Observation');
             $table->timestamps();
+            $table->foreignId('vhl_id')->nullable()
+            ->constrained()->cascadeOnDelete()->cascadeOnUpdate();
         });
     }
 

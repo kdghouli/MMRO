@@ -15,7 +15,11 @@ class CreateVisitesTable extends Migration
     {
         Schema::create('visites', function (Blueprint $table) {
             $table->id();
+            $table->date('visite');
+            $table->text('Observation');
             $table->timestamps();
+            $table->foreignId('vhl_id')->nullable()
+            ->constrained()->cascadeOnDelete()->cascadeOnUpdate();
         });
     }
 
