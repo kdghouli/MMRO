@@ -61,7 +61,7 @@
             :to="{ name: 'OneVhlView', params: { id: camion.id } }"
             >{{ camion.matricule }}
           </router-link>
-          <span class="fw-lighter ms-4 me-auto align-bottom" style="font-size: 9px">{{
+          <span class="fw-lighter ms-4 me-auto align-bottom">{{
             camion.intitule.nom?camion.intitule.nom:"ok"
           }}</span>
           <span class="badge bg-success rounded-pill" v-if="camion.comment.length">{{
@@ -97,7 +97,7 @@
             }"
             >{{ voiture.matricule }}</router-link
           >
-          <span class="fw-lighter ms-2" style="font-size: 9px"
+          <span class="fw-lighter ms-2" style="font-size: 11px"
             >{{ voiture.type }}&nbsp;&nbsp;&nbsp;&nbsp;{{ voiture.utilisateur }}</span
           >
           <span class="badge bg-primary rounded-pill" v-if="voiture.comment.length">{{
@@ -138,7 +138,7 @@
           >
           <span
             class="fw-lighter ms-4 me-auto align-bottom text-truncate"
-            style="font-size: 9px"
+            style="font-size: 11px"
             >{{ chariot.marque }}</span
           ><span class="badge bg-warning rounded-pill" v-if="chariot.comment.length">{{
             chariot.comment.length
@@ -177,7 +177,7 @@
           >
           <span
             class="fw-lighter ms-4 me-auto align-bottom text-truncate"
-            style="font-size: 10px"
+            style="font-size: 12px"
             >{{ scooter.utilisateur }}</span
           ><span class="badge bg-danger rounded-pill" v-if="scooter.comment.length">{{
             scooter.comment.length
@@ -216,7 +216,7 @@
           >
           <span
             class="fw-lighter ms-4 me-auto align-bottom text-truncate"
-            style="font-size: 10px"
+            style="font-size: 12px"
             >{{ autre.utilisateur }}</span
           ><span class="badge bg-danger rounded-pill" v-if="autre.comment.length">{{
             autre.comment.length

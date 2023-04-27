@@ -84,7 +84,7 @@
           </div>
         </div>
 
-        <!-- Modal -->
+        <!-- Modal commentaire -->
         <div
           class="modal fade"
           id="staticBackdrop"
@@ -190,7 +190,7 @@
             <div class="card my-1" style="max-width: 940px">
               <div class="row g-0">
                 <div class="col align-self-center ">
-                  <img src="\images\discuter.png" class="img-fluid rounded ms-5" alt="..." style="width: 100px;" />
+                  <img src="\images\discuter.png" class="img-fluid rounded ms-4" alt="..." style="width: 100px;" />
                 </div>
                 <div class="col-md-9">
                   <div class="card-body">
@@ -213,20 +213,22 @@
         <!-- <CreateCommentView :vhl="vhl" @closing="componentComment=false"/> -->
       </div>
     </div>
+    <visiteTech vhl_id="3"/>
   </div>
 </template>
 
 <script>
-import CommentsVhl from "./CommentsVhl";
-import UpdateVhlModal from "./UpdateVhlModal";
 import { useBasesStore } from "../../store/bases.js";
 import moment from 'moment';
+import CommentsVhl from "./CommentsVhl";
+import UpdateVhlModal from "./UpdateVhlModal";
+import visiteTech from '../../components/papiers/VisiteTech';
 
 //import commentVhl from "./../../commentVhl.vue";
 
 export default {
-  components: {
-    CommentsVhl,UpdateVhlModal
+     components: {
+    CommentsVhl,UpdateVhlModal,visiteTech
   },
 
   data() {
@@ -307,15 +309,13 @@ export default {
     },
     getHumanDate (date) {
                 //return moment(date, 'YYYY-MM-DD').format('DD/MM/YYYY')
-                return moment(date).locale('fr').startOf('day').fromNow();
+                return moment(date).locale('fr').fromNow();
             }
   },
  async mounted() {
     this.getListStatus;
    // await this.base.fetchBase();
    this.vhl_id = this.$route.params.id;
-  },
-};
-</script>
+  }}</script>
 
 <style></style>
