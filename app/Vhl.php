@@ -44,4 +44,11 @@ class Vhl extends Model
 
         return $this ->hasMany(Comment::class);
     }
+
+    public function visite(){
+
+        return $this->belongsTo(Visite::class);
+
+    }
+
 }

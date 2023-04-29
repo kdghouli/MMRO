@@ -17,4 +17,7 @@ Route::get('/{any}', 'VhlController@viewMain')->where('any', '.*');
 
 
 Route::post('/creata' ,'VhlController@storeVhl');
+Route::post('/createVisite' ,'VhlController@uploadVisite');
+
+
 Route::put('/modifia/{id}' ,'VhlController@updateVhl');

@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Http\Resources\VhlResource;
 use App\Http\Resources\ListResource;
 use App\Intitule;
+use App\Visite;
 use Illuminate\Support\Facades\Log;
 class VhlController extends Controller
 {
@@ -233,5 +234,34 @@ class VhlController extends Controller
     //     $posts = $posts->paginate(intval($nbposts));
     //     return response()->json($posts);
     // }
+
+    public function uploadVisite(Request $request){
+
+        // $request->validate([
+        //    'file' => 'required|mimes:jpg,jpeg,png,csv,txt,xlx,xls,pdf|max:2048'
+        // ]);
+        // die($request)
+
+        $visite = Visite::create([
+            'observation' => $request->observation,
+            'vhl_id' => $request->vhl_id,
+            'visite' => $request->visite,
+            'image'=>  $request->file('image')->store('imago','public')
+        ]);
+
+
+        //     if($request->file()) {
+        //         $file_name = time().'_'.$request->file->getClientOriginalName();
+        //         $file_path = $request->file('file')->storeAs('uploads', $file_name, 'public');
+
+        //     $visite->name = time().'_'.$request->file->getClientOriginalName();
+        //     $visite->path = '/storage/' . $file_path;
+        //     $visite->save();
+
+        // }
+
+   return response()->json($visite);
+
+   }
 
 }

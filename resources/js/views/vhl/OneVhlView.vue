@@ -213,7 +213,7 @@
         <!-- <CreateCommentView :vhl="vhl" @closing="componentComment=false"/> -->
       </div>
     </div>
-    <visiteTech vhl_id="3"/>
+    <visiteTech />
   </div>
 </template>
 
