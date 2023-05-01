@@ -30,6 +30,7 @@ Route::get('intitule','VhlController@ListIntitules');
 
 Route::post('/comment/create' ,'VhlController@storeComment');
 
+Route::get('visite','VhlController@getVisite');
 
 
 

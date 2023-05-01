@@ -69,10 +69,8 @@ createVisite(e) {
           console.log(res);
         })
         .then(() =>
-          this.$router.push({
-            name: "OneVhlView",
-            params: { id: this.vhl_id },
-          })
+          this.$router.push('/'
+          )
         );
 
 

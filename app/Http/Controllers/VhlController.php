@@ -263,5 +263,10 @@ class VhlController extends Controller
    return response()->json($visite);
 
    }
+   public function getVisite (){
+
+    return ListResource::collection(Visite::all());
+
+   }
 
 }

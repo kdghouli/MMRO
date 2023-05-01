@@ -190,7 +190,7 @@
             <div class="card my-1" style="max-width: 940px">
               <div class="row g-0">
                 <div class="col align-self-center ">
-                  <img src="\images\discuter.png" class="img-fluid rounded ms-4" alt="..." style="width: 100px;" />
+                  <img src="/images/discuter.png" class="img-fluid rounded ms-4" alt="..." style="width: 100px;" />
                 </div>
                 <div class="col-md-9">
                   <div class="card-body">
