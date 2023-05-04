@@ -51,8 +51,8 @@
         <li
           class="list-group-item list-group-item-action d-flex justify-content-between align-items-center list-group-item-success mb-1 shadow-sm"
           :class="{
-            ['bg-danger fw-bold text-white animate__animated animate__headShake animate__infinite']:
-              camion.comment.length,
+            ['bg-danger fw-bold text-white']:
+              camion.statu_id==2,
           }"
         >
           <i class="bi bi-truck fs-5 me-1"></i>
@@ -65,7 +65,7 @@
             camion.intitule.nom?camion.intitule.nom:"ok"
           }}</span>
           <span class="badge bg-success rounded-pill" v-if="camion.comment.length">{{
-            camion.comment.length
+            camion.comment.active=0
           }}</span>
         </li>
       </ul>

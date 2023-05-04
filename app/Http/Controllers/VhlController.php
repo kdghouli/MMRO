@@ -52,16 +52,22 @@ class VhlController extends Controller
 
 
 
-    public function storeComment(Request $request)
+    public function storeComment(Request $request,Vhl $vhl)
     {
-
+        $vhl = Vhl::findOrFail($request->vhl_id,);
+        $vhl-> statu_id = $request->statu_id;
+        $vhl-> save();
 
         $comment = Comment::create([
             'comment' => $request->comment,
             'active' => $request->active,
             'vhl_id' => $request->vhl_id,
             'statu_id' => $request->statu_id,
+
         ]);
+
+
+
         return response()->json([
             'id' => $comment->id,
             'comment' => $comment->comment,
