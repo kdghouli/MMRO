@@ -132,8 +132,9 @@
                       </select>
                     </div>
                   </div>
+                  <div class="row">
                   <div class="col-6">
-                    <div class="mb-3 form-check form-switch">
+                    <div class="mb-2 form-check form-switch">
                       <input
                         class="form-check-input"
                         type="checkbox"
@@ -145,6 +146,24 @@
                       </label>
                     </div>
                   </div>
+
+
+
+
+                  <div class="col-5">
+
+                      <input
+                        class="form-control"
+                        type="number"
+
+                        placeholder="Kilometrage"
+                        v-model="Kilometrage"
+                      />
+
+
+                  </div>
+                  </div>
+
                   <div class="mb-3">
                     <label class="pb-1 form-label fw-bolder" for="commentaire"
                       >Commentaire</label

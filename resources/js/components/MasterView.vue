@@ -51,23 +51,26 @@
         <li
           class="list-group-item list-group-item-action d-flex justify-content-between align-items-center list-group-item-success mb-1 shadow-sm"
           :class="{
-            ['bg-danger fw-bold text-white']:
-              camion.statu_id==2,
+            ['bg-danger fw-bold text-white h5 ']:
+              camion.statu_id!==1,
           }"
         >
           <i class="bi bi-truck fs-5 me-1"></i>
           <router-link
-            class="text-decoration-none"
+            class="link-opacity-50-hover text-decoration-none fw-bold "
             :to="{ name: 'OneVhlView', params: { id: camion.id } }"
             >{{ camion.matricule }}
           </router-link>
           <span class="fw-lighter ms-4 me-auto align-bottom">{{
             camion.intitule.nom?camion.intitule.nom:"ok"
           }}</span>
-          <span class="badge bg-success rounded-pill" v-if="camion.comment.length">{{
-            camion.comment.active=0
-          }}</span>
+         <img v-if="camion.statu_id==2" src="images/1x/statu_2.png" style="width: 32px;" class="animate__animated animate__headShake animate__slow animate__infinite" alt="">
+         <img v-else-if="camion.statu_id==3" src="images/1x/statu_3.png" style="width: 32px;" class="animate__animated animate__headShake animate__slow animate__infinite" alt="">
+         <img v-else-if="camion.statu_id==4" src="images/1x/statu_4.png" style="width: 32px;" class="animate__animated animate__headShake animate__slow animate__infinite" alt="">
+         <img v-else-if="camion.statu_id==5" src="images/1x/statu_5.png" style="width: 32px;" class="animate__animated animate__fadeIn animate__slow animate__infinite" alt="">
+
         </li>
+
       </ul>
     </div>
     <hr />

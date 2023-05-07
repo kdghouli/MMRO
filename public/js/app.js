@@ -22596,7 +22596,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       "class": "list-group",
       key: camion
     }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
-      "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["list-group-item list-group-item-action d-flex justify-content-between align-items-center list-group-item-success mb-1 shadow-sm", _defineProperty({}, 'bg-danger fw-bold text-white', camion.statu_id == 2)])
+      "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["list-group-item list-group-item-action d-flex justify-content-between align-items-center list-group-item-success mb-1 shadow-sm", _defineProperty({}, 'bg-danger fw-bold text-white', camion.statu_id.length)])
     }, [_hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
       "class": "text-decoration-none",
       to: {
