@@ -154,10 +154,10 @@
 
                       <input
                         class="form-control"
-                        type="number"
+                        type="text"
 
                         placeholder="Kilometrage"
-                        v-model="Kilometrage"
+                        v-model="kilometrage"
                       />
 
 
@@ -263,7 +263,8 @@ export default {
       vhl_id: "",
       now: new Date(),
       active: false,
-      showModal: false
+      showModal: false,
+      kilometrage:""
     };
   },
   computed: {
@@ -288,6 +289,7 @@ export default {
         comment: this.comment,
         active: this.active,
         statu_id: this.statu_id,
+        kilometrage:this.kilometrage
       };
       console.log(comment);
       comment = this;

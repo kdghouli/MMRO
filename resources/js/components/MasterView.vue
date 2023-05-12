@@ -37,78 +37,14 @@
 
     <!-- Camions -->
 
-    <p class="pt-2">
-      Nombre des
-      <span class="fw-bolder"
-        ><span><i class="bi bi-truck text-success fs-4"></i></span> Camions: </span
-      ><span class="badge rounded-pill bg-success ms-1">
-        {{ camionsMat.length }}
-      </span>
-    </p>
+    <listCamions :camionsMat="camionsMat"> </listCamions>
 
-    <div class="row row-cols-lg-3 row-cols-md-2">
-      <ul v-for="camion in camionsMat" class="list-group" :key="camion">
-        <li
-          class="list-group-item list-group-item-action d-flex justify-content-between align-items-center list-group-item-success mb-1 shadow-sm"
-          :class="{
-            ['bg-danger fw-bold text-white h5 ']:
-              camion.statu_id!==1,
-          }"
-        >
-          <i class="bi bi-truck fs-5 me-1"></i>
-          <router-link
-            class="link-opacity-50-hover text-decoration-none fw-bold "
-            :to="{ name: 'OneVhlView', params: { id: camion.id } }"
-            >{{ camion.matricule }}
-          </router-link>
-          <span class="fw-lighter ms-4 me-auto align-bottom">{{
-            camion.intitule.nom?camion.intitule.nom:"ok"
-          }}</span>
-         <img v-if="camion.statu_id==2" src="images/1x/statu_2.png" style="width: 32px;" class="animate__animated animate__headShake animate__slow animate__infinite" alt="">
-         <img v-else-if="camion.statu_id==3" src="images/1x/statu_3.png" style="width: 32px;" class="animate__animated animate__headShake animate__slow animate__infinite" alt="">
-         <img v-else-if="camion.statu_id==4" src="images/1x/statu_4.png" style="width: 32px;" class="animate__animated animate__headShake animate__slow animate__infinite" alt="">
-         <img v-else-if="camion.statu_id==5" src="images/1x/statu_5.png" style="width: 32px;" class="animate__animated animate__fadeIn animate__slow animate__infinite" alt="">
 
-        </li>
-
-      </ul>
-    </div>
     <hr />
 
     <!-- Voitures -->
+    <listVoitures :voituresMat="voituresMat"> </listVoitures>
 
-    <p class="pt-2">
-      Nombre des <span class="fw-bolder"> Voitures: </span
-      ><span class="badge rounded-pill bg-primary ms-1">{{ voituresMat.length }}</span>
-    </p>
-
-    <div class="row row-cols-lg-3 row-cols-md-2">
-      <ul v-for="voiture in voituresMat" class="list-group" :key="voiture">
-        <li
-          class="list-group-item list-group-item-action d-flex justify-content-between align-items-center list-group-item-primary mb-1 shadow-sm"
-          :class="{
-            ['bg-danger fw-bold text-white animate__animated animate__headShake animate__infinite']:
-              voiture.comment.length,
-          }"
-        >
-          <i class="bi bi-car-front-fill text-primary fs-5 me-1"></i>
-          <router-link
-            class="text-decoration-none"
-            :to="{
-              name: 'OneVhlView',
-              params: { id: voiture.id },
-            }"
-            >{{ voiture.matricule }}</router-link
-          >
-          <span class="fw-lighter ms-2" style="font-size: 11px"
-            >{{ voiture.type }}&nbsp;&nbsp;&nbsp;&nbsp;{{ voiture.utilisateur }}</span
-          >
-          <span class="badge bg-primary rounded-pill" v-if="voiture.comment.length">{{
-            voiture.comment.length
-          }}</span>
-        </li>
-      </ul>
-    </div>
     <hr />
 
     <!-- Chariots -->
@@ -152,42 +88,7 @@
     <hr />
 
     <!-- Scooters -->
-
-    <p class="py-2">
-      Nombre des
-      <span class="fw-bolder"
-        ><img class="me-1" src="" alt="" style="width: 30px" /> Scooters : </span
-      ><span class="badge rounded-pill bg-danger ms-1">{{ scootersMat.length }}</span>
-    </p>
-
-    <div class="row row-cols-lg-3 row-cols-md-2 mb-2">
-      <ul v-for="scooter in scootersMat" class="list-group" :key="scooter">
-        <li
-          class="list-group-item list-group-item-action d-flex justify-content-between align-items-center list-group-item-danger mb-1 shadow-sm"
-          :class="{
-            ['bg-danger fw-bold text-white animate__animated animate__heartBeat animate__infinite']:
-              scooter.comment.length,
-          }"
-        >
-          <img class="me-1" src="" alt="" style="width: 22px" />
-          <router-link
-            class="text-decoration-none"
-            :to="{
-              name: 'OneVhlView',
-              params: { id: scooter.id },
-            }"
-            >{{ scooter.matricule }}</router-link
-          >
-          <span
-            class="fw-lighter ms-4 me-auto align-bottom text-truncate"
-            style="font-size: 12px"
-            >{{ scooter.utilisateur }}</span
-          ><span class="badge bg-danger rounded-pill" v-if="scooter.comment.length">{{
-            scooter.comment.length
-          }}</span>
-        </li>
-      </ul>
-    </div>
+    <listScooters :scootersMat="scootersMat"></listScooters>
 
 
  <!-- Autre -->
@@ -350,7 +251,13 @@
 <script>
 
 import { useBasesStore} from "../store/bases.js";
+import listCamions from "./camions/listCamions.vue";
+import listVoitures from "./voitures/listVoitures.vue"
+import listManutentions from "./manutentions/listManutentions.vue"
+import listScooters from "./scooters/listScooters.vue"
+
 export default {
+    components:{listCamions,listVoitures,listManutentions,listScooters},
   data() {
     return {
       base: useBasesStore(),

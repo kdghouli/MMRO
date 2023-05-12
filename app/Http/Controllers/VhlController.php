@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Http\Resources\VhlResource;
 use App\Http\Resources\ListResource;
 use App\Intitule;
+use App\Kilometrage;
 use App\Visite;
 use Illuminate\Support\Facades\Log;
 class VhlController extends Controller
@@ -52,30 +53,37 @@ class VhlController extends Controller
 
 
 
-    public function storeComment(Request $request,Vhl $vhl)
+    public function storeComment(Request $request,Vhl $vhl,Kilometrage $kilo)
     {
-        $vhl = Vhl::findOrFail($request->vhl_id,);
-        $vhl-> statu_id = $request->statu_id;
-        $vhl-> save();
 
         $comment = Comment::create([
             'comment' => $request->comment,
             'active' => $request->active,
             'vhl_id' => $request->vhl_id,
             'statu_id' => $request->statu_id,
+            'kilometrage'=>$request->kilometrage
 
         ]);
 
-
-
-        return response()->json([
-            'id' => $comment->id,
-            'comment' => $comment->comment,
-            'vhl_id' => $comment->vhl_id,
-            'statu_id' => $comment->statu_id,
-
+        $kilo=Kilometrage::create([
+            'kilometrage' =>$request->kilometrage,
+            'date' => date(now()),
+            'observation'=>$request->comment,
+            'vhl_id' => $request->vhl_id
 
         ]);
+
+        $vhl = Vhl::findOrFail($request->vhl_id,);
+        $vhl-> statu_id = $request->statu_id;
+        $vhl-> save();
+
+       // $kilo=Kilometrage::create($request ->)
+
+
+
+
+        return response()->json(["ok"=>"ok"
+    ]);
     }
 
 
