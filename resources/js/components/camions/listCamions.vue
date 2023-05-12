@@ -15,13 +15,17 @@
         <li
           class="list-group-item list-group-item-action d-flex justify-content-between align-items-center list-group-item-success mb-1 shadow-sm"
           :class="{
-            ['bg-danger fw-bold text-white h5 ']:
+            ['bg-danger fw-bold text-light h5 ']:
               camion.statu_id!==1,
           }"
         >
           <i class="bi bi-truck fs-5 me-1"></i>
           <router-link
-            class="link-opacity-50-hover text-decoration-none fw-bold "
+            class="link-opacity-50-hover text-decoration-none  fw-bold "
+            :class="{
+            ['link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover ']:
+              camion.statu_id!==1,
+          }"
             :to="{ name: 'OneVhlView', params: { id: camion.id } }"
             >{{ camion.matricule }}
           </router-link>
