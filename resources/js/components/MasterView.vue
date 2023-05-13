@@ -23,10 +23,10 @@
 
  <!-- selected -->
 
-    <div class="row mt-2">
-      <h3 class="col-md-6 mt-1">Liste des véhicules Agence :</h3>
-      <div class="col-5">
-        <select class="form-select fs-5" v-model="Selected" @click="filterMatricule">
+    <div class="row mt-4 justify-content-center">
+      <h3 class="col-md-3 offset-md-4 fw-bolder">Liste des véhicules :</h3>
+      <div class="col-4 ">
+        <select class="form-select fs-5 " v-model="Selected" @click="filterMatricule">
           <option value="0" selected>Tous</option>
           <option v-for="agence in agencaList" :key="agence" :value="agence[0]">
             {{ agence[1] }}
@@ -49,43 +49,7 @@
 
     <!-- Chariots -->
 
-    <p class="pt-2">
-      Nombre des
-      <span class="fw-bolder"
-        ><img class="me-1" src="" alt="" style="width: 30px" /> Chariots
-      </span>
-      <span class="badge rounded-pill bg-warning ms-1">{{ chariotsMat.length }} </span>
-    </p>
-
-    <div class="row row-cols-lg-3 row-cols-md-2">
-      <ul v-for="chariot in chariotsMat" class="list-group" :key="chariot">
-        <li
-          class="list-group-item list-group-item-action d-flex justify-content-between align-items-center list-group-item-warning mb-1 shadow-sm"
-          :class="{
-            ['bg-danger fw-bold text-white animate__animated animate__headShake animate__infinite']:
-              chariot.comment.length,
-          }"
-        >
-          <img class="me-1" src="" alt="" style="width: 22px" />
-          <router-link
-            class="text-decoration-none"
-            :to="{
-              name: 'OneVhlView',
-              params: { id: chariot.matricule },
-            }"
-            >{{ chariot.matricule }}</router-link
-          >
-          <span
-            class="fw-lighter ms-4 me-auto align-bottom text-truncate"
-            style="font-size: 11px"
-            >{{ chariot.marque }}</span
-          ><span class="badge bg-warning rounded-pill" v-if="chariot.comment.length">{{
-            chariot.comment.length
-          }}</span>
-        </li>
-      </ul>
-    </div>
-    <hr />
+    <listManutentions :chariotsMat="chariotsMat"></listManutentions>
 
     <!-- Scooters -->
     <listScooters :scootersMat="scootersMat"></listScooters>
