@@ -1,10 +1,11 @@
 require('./bootstrap');
 
 
-import "bootstrap/dist/css/bootstrap.min.css"
-import "./bootstrap" ;
-import 'bootswatch/dist/flatly/bootstrap.min.css'; // Added this :boom:
+//import "bootstrap/dist/css/bootstrap.min.css"
+//import "./bootstrap" ;
+//import 'bootswatch/dist/flatly/bootstrap.min.css'; // Added this :boom:
 import 'animate.css';
+import 'bootstrap-icons/font/bootstrap-icons.css'
 
 
 //import "lodash";

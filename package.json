@@ -20,18 +20,19 @@
         "resolve-url-loader": "^3.1.2",
         "sass": "^1.60.0",
         "sass-loader": "^11.0.1"
-        
     },
     "dependencies": {
-        "vue-axios": "^3.4.1",
-        "vue-router": "^4.0.13",
-        "vue-template-compiler": "^2.6.10",
-        "vue-loader": "^17.0.0",
-        "vue": "^3.2.36",
         "animate.css": "^4.1.1",
+        "bootstrap-icons": "^1.10.5",
+        "bootstrap-icons-vue": "^1.10.3",
         "bootswatch": "^5.2.3",
         "jquery": "^3.6.4",
         "moment": "^2.29.4",
-        "pinia": "^2.0.33"
+        "pinia": "^2.0.33",
+        "vue": "^3.2.36",
+        "vue-axios": "^3.4.1",
+        "vue-loader": "^17.0.0",
+        "vue-router": "^4.0.13",
+        "vue-template-compiler": "^2.6.10"
     }
 }

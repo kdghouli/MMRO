@@ -24,7 +24,7 @@
  <!-- selected -->
 
     <div class="row mt-4 justify-content-center">
-      <h3 class="col-md-3 offset-md-4 fw-bolder">Liste des véhicules :</h3>
+      <h3 class="col-md-3 offset-md-4 fw-bolder">Liste de Parc :</h3>
       <div class="col-4 ">
         <select class="form-select fs-5 " v-model="Selected" @click="filterMatricule">
           <option value="0" selected>Tous</option>
@@ -94,7 +94,9 @@
     </div>
 
     <!-- ------modal -->
-    <div
+
+     <CreationVhlModal/>
+    <!-- <div
       class="modal fade"
       id="staticBackdrop"
       data-bs-backdrop="static"
@@ -206,7 +208,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <!-- fin Modal -->
   </div>
@@ -219,9 +221,10 @@ import listCamions from "./camions/listCamions.vue";
 import listVoitures from "./voitures/listVoitures.vue"
 import listManutentions from "./manutentions/listManutentions.vue"
 import listScooters from "./scooters/listScooters.vue"
+import CreationVhlModal from "../views/vhl/CreationVhlModal.vue";
 
 export default {
-    components:{listCamions,listVoitures,listManutentions,listScooters},
+    components:{listCamions,listVoitures,listManutentions,listScooters,CreationVhlModal},
   data() {
     return {
       base: useBasesStore(),
@@ -243,14 +246,14 @@ export default {
 
 
 
-      matriculeIn: "",
-      marqueIn: "",
-      dateIn: "",
-      agenceIn: "",
-      statuIn: "",
-      intituleIn: "",
-      categorieIn: "",
-      utilisateurIn: "",
+    //   matriculeIn: "",
+    //   marqueIn: "",
+    //   dateIn: "",
+    //   agenceIn: "",
+    //   statuIn: "",
+    //   intituleIn: "",
+    //   categorieIn: "",
+    //   utilisateurIn: "",
 
     };
   },
@@ -358,17 +361,19 @@ export default {
 
 
 
-  async mounted() {
+   async mounted() {
+
     await this.base.fetchBase();
     await this.base.fetchComments();
     await this.base.fetchIntitules();
     await this.base.fetchStatus();
     await this.base.fetchAgences();
-
+    this.agencaList = useBasesStore().optionAgences;
 
     this.filterMatricule;
-    this.agencaList= useBasesStore().optionAgences
-
+    useBasesStore().optionStatus,
+    useBasesStore().optionIntitules,
+    useBasesStore().optionAgences
 
 
 

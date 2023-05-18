@@ -4,7 +4,7 @@ import Camion from "../views/vhl/category/Camion.vue";
 import Voiture from "../views/vhl/category/Voiture.vue";
 import Scooter from "../views/vhl/category/Scooter.vue";
 import Chariot from "../views/vhl/category/Chariot.vue";
-import Creation from "../views/vhl/Creation.vue";
+
 import Show from "../views/vhl/Show.vue";
 import Edit from "../views/vhl/Update.vue";
 import Reclam from "../views/vhl/Reclamation.vue";
@@ -46,10 +46,7 @@ const routes = [
         name: "chariot",
         component: Chariot,
     },
-    {
-        path: "/new",
-        component: Creation,
-    },
+
     {
         path: "/camion/:id",
         name: "vhl-show",

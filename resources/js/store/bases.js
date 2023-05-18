@@ -17,7 +17,6 @@ export const useBasesStore = defineStore("bases", {
         status: [],
         intitules:[],
         searchIn:'',
-        listCamion: {},
         vhl: {},
         agenca: [],
     }),
@@ -88,7 +87,7 @@ export const useBasesStore = defineStore("bases", {
 
         optionAgences(state){
 
-         console.log("optionAgences-getListStatus");
+         console.log("optionAgences-getListAgence");
          const lista = new Map();
          state.agences.forEach((x) => lista.set(x.id, x.nom));
          return Array.from(lista);

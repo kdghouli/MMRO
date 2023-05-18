@@ -1,6 +1,6 @@
 <template >
   <!-- Camions -->
-
+  <i class="bi-alarm"></i>
   <p class="pt-2">
       Nombre des
       <span class="fw-bolder"
@@ -19,7 +19,7 @@
               camion.statu_id!==1,
           }"
         >
-          <i class="bi bi-truck fs-5 me-1"></i>
+          <i class="bi bi-truck"></i>
           <router-link
             class="link-opacity-50-hover text-decoration-none  fw-bold "
             :class="{
