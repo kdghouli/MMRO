@@ -12,9 +12,9 @@
             :to="{ name: 'OneVhlView', params: { id: search.id } }"
             >{{ search.matricule }}
           </router-link></div>
-      {{search.categorie.nom}} à {{ search.agence.nom }} ------> {{ search.utilisateur }}
+      {{search.categorie.name}} à {{ search.agence.name }} :----> {{ search.utilisateur }}
     </div>
-    <span class="badge bg-warning rounded-pill">{{ search.intitule.nom }}</span>
+    <span class="badge bg-warning rounded-pill">{{ search.intitule.name}}</span>
   </li>
 </ul>
 
@@ -95,7 +95,7 @@
 
     <!-- ------modal -->
 
-     <CreationVhlModal/>
+     <CreationVhlModal :agencaList="agencaList" :intituleListe="intituleListe" :statusList="statusList"/>
     <!-- <div
       class="modal fade"
       id="staticBackdrop"
@@ -229,7 +229,6 @@ export default {
     return {
       base: useBasesStore(),
       agences: useBasesStore().agences,
-      db: {},
       camionsMat: {},
       voituresMat: {},
       scootersMat: {},
@@ -238,12 +237,12 @@ export default {
       CommentsDb: useBasesStore().commentaires,
       Selected: 0,
       agenca: {},
-      statusList: useBasesStore().optionStatus,
-      intituleListe: useBasesStore().optionIntitules,
-      agencaList: useBasesStore().optionAgences,
-      statu_id: "",
-      vhl_id: "",
+      statu_id:"",
+      vhl_id:'',
 
+    statusList: '',
+    intituleListe: '',
+    agencaList: ''
 
 
     //   matriculeIn: "",
@@ -263,41 +262,41 @@ export default {
 
 
 
-    createVhl() {
+    // createVhl() {
 
-      console.log("createVhl");
-      const vhl = this;
-      axios
-        .post("/creata", {
-        matricule: this.matriculeIn,
-        marque: this.marqueIn,
-        date_mc: this.dateIn,
-        agence_id: this.agenceIn,
-        statu_id: this.statuIn,
-        intitule_id: this.intituleIn,
-        categorie_id: this.categorieIn,
-        utilisateur: this.utilisateurIn,
-         },{headers:{ 'Content-Type': 'application/json'}})
-        .then((res) => {
-          console.log(res);
-        }).then(
-            ()=>{
-        this.matriculeIn='',
-        this.marqueIn='',
-        this.dateIn='',
-        this.agenceIn='',
-        this.statuIn='',
-        this.intituleIn='',
-        this.categorieIn='',
-        this.utilisateurIn=''
-            }
-        )
-        .then(() => this.$router.push("/"))
-        .catch((err) => console.log(err.message));
+    //   console.log("createVhl");
+    //   const vhl = this;
+    //   axios
+    //     .post("/creata", {
+    //     matricule: this.matriculeIn,
+    //     marque: this.marqueIn,
+    //     date_mc: this.dateIn,
+    //     agence_id: this.agenceIn,
+    //     statu_id: this.statuIn,
+    //     intitule_id: this.intituleIn,
+    //     categorie_id: this.categorieIn,
+    //     utilisateur: this.utilisateurIn,
+    //      },{headers:{ 'Content-Type': 'application/json'}})
+    //     .then((res) => {
+    //       console.log(res);
+    //     }).then(
+    //         ()=>{
+    //     this.matriculeIn='',
+    //     this.marqueIn='',
+    //     this.dateIn='',
+    //     this.agenceIn='',
+    //     this.statuIn='',
+    //     this.intituleIn='',
+    //     this.categorieIn='',
+    //     this.utilisateurIn=''
+    //         }
+    //     )
+    //     .then(() => this.$router.push("/"))
+    //     .catch((err) => console.log(err.message));
 
-      console.log("createVhl - ok");
+    //   console.log("createVhl - ok");
 
-    },
+    // },
     // calcComments(ddd) {
     //   const nbComments = this.CommentsDb.filter((sel) => sel.vhl_id == ddd);
     //   return nbComments.length;
@@ -306,7 +305,7 @@ export default {
 
   computed: {
     filterMatricule() {
-      console.log("filterMatricule");
+      console.log("SelectedMatricule");
       if (this.Selected == "0") {
         this.camionsMat = this.base.getCamions;
         this.voituresMat = this.base.getVoitures;
@@ -371,11 +370,12 @@ export default {
     this.agencaList = useBasesStore().optionAgences;
 
     this.filterMatricule;
-    useBasesStore().optionStatus,
-    useBasesStore().optionIntitules,
-    useBasesStore().optionAgences
 
 
+
+   this.statusList= useBasesStore().optionStatus;
+   this.intituleListe= useBasesStore().optionIntitules;
+    this.agencaList= useBasesStore().optionAgences
 
   },
 };

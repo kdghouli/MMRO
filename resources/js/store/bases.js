@@ -70,7 +70,7 @@ export const useBasesStore = defineStore("bases", {
 
      console.log("optionStatus-getListStatus");
       const lista = new Map();
-      state.status.forEach((x) => lista.set(x.id, x.etat));
+      state.status.forEach((x) => lista.set(x.id, x.name));
       return Array.from(lista);
 
         },
@@ -80,7 +80,7 @@ export const useBasesStore = defineStore("bases", {
          console.log("optionIntitules-getListeIntitule");
 
         const lista = new Map();
-        state.intitules.forEach((x) => lista.set(x.id, x.nom));
+        state.intitules.forEach((x) => lista.set(x.id, x.name));
         return Array.from(lista);
 
                },
@@ -89,7 +89,7 @@ export const useBasesStore = defineStore("bases", {
 
          console.log("optionAgences-getListAgence");
          const lista = new Map();
-         state.agences.forEach((x) => lista.set(x.id, x.nom));
+         state.agences.forEach((x) => lista.set(x.id, x.name));
          return Array.from(lista);
 
                    },

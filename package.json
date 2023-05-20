@@ -22,9 +22,9 @@
         "sass-loader": "^11.0.1"
     },
     "dependencies": {
+
         "animate.css": "^4.1.1",
-        "bootstrap-icons": "^1.10.5",
-        "bootstrap-icons-vue": "^1.10.3",
+
         "bootswatch": "^5.2.3",
         "jquery": "^3.6.4",
         "moment": "^2.29.4",

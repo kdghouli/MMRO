@@ -1,4 +1,6 @@
 <template lang="">
+
+
     <div
         class="modal fade"
         id="staticBackdrop"
@@ -174,21 +176,20 @@
             </div>
         </div>
     </div>
+
 </template>
 
 <script>
 import { useBasesStore} from "./../../store/bases.js";
 export default {
-
+props:['statusList','intituleListe','agencaList'],
 
     data() {
+
     return {
 
 
 
-    statusList: useBasesStore().optionStatus,
-    intituleListe: useBasesStore().optionIntitules,
-    agencaList: useBasesStore().optionAgences,
 
 
 
@@ -244,10 +245,15 @@ export default {
 
             console.log("createVhl - ok");
         },
-    
 
 
+
+},
+mounted(){
+
+console.log('modal-Creation')
+    },
 }
 
-};
+;
 </script>

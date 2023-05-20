@@ -27,8 +27,8 @@
     <div v-for="vhlo in vhl" :key="vhlo">
       <div class="p-1 bg-primary border border-1 rounded">
         <h4 class="text-white p-1 text-center border border-2 rounded">
-          {{ vhlo.categorie.nom }} à
-          {{ vhlo.agence.nom }}
+          {{ vhlo.categorie.name }} à
+          {{ vhlo.agence.name }}
           <button
             type="button"
             class="btn btn-outline-warning my-auto btn-sm float-end align-items-center"
@@ -55,10 +55,10 @@
             </p>
             <p>
               Affectation :
-              <span class="fw-bold p-1 mx-2">{{ vhlo.agence.nom }}</span>
+              <span class="fw-bold p-1 mx-2">{{ vhlo.agence.name }}</span>
             </p>
             <p>
-              Proprietaire :<span class="fw-bold p-1 mx-2">{{ vhlo.intitule.nom }}</span>
+              Proprietaire :<span class="fw-bold p-1 mx-2">{{ vhlo.intitule.name }}</span>
             </p>
             <p>
               DMC :
@@ -334,7 +334,7 @@ export default {
             }
   },
  async mounted() {
-    this.getListStatus;
+    //this.getListStatus;
    // await this.base.fetchBase();
    this.vhl_id = this.$route.params.id;
   }}</script>

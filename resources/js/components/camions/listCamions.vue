@@ -1,10 +1,10 @@
 <template >
   <!-- Camions -->
-  <i class="bi-alarm"></i>
+
   <p class="pt-2">
       Nombre des
       <span class="fw-bolder"
-        ><span><i class="bi bi-truck text-success fs-4"></i></span> Camions: </span
+        ><span><i class="bi bi-truck"></i></span> Camions: </span
       ><span class="badge rounded-pill bg-success ms-1">
         {{ camionsMat.length }}
       </span>
@@ -30,7 +30,7 @@
             >{{ camion.matricule }}
           </router-link>
           <span class="fw-lighter ms-4 me-auto align-bottom">{{
-            camion.intitule.nom?camion.intitule.nom:"ok"
+            camion.intitule.name?camion.intitule.name:"ok"
           }}</span>
          <img v-if="camion.statu_id==2" src="images/1x/statu_2.png" style="width: 32px;" class="animate__animated animate__headShake animate__slow animate__infinite" alt="">
          <img v-else-if="camion.statu_id==3" src="images/1x/statu_3.png" style="width: 32px;" class="animate__animated animate__headShake animate__slower animate__infinite" alt="">
