@@ -71,8 +71,9 @@ export const useBasesStore = defineStore("bases", {
      console.log("optionStatus-getListStatus");
       const lista = new Map();
       state.status.forEach((x) => lista.set(x.id, x.name));
-      return Array.from(lista);
-
+      const arr = Array.from(lista);
+      console.log({... _.valuesIn(arr)})
+    return {...arr}
         },
 
         optionIntitules(state){

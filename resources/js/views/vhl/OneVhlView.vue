@@ -8,7 +8,7 @@
   <div class="my-1 bg-primary-50 bg-gradient shadow p-1 border border-1 rounded">
     <h3 class="p-2 fw-semibold border border-danger text-center shadow-sm rounded">
       Fiche de Véhicule Immatriculé :
-      <span class="text-black fw-bolder shadow-sm p-1">{{ vhl[0].matricule }}</span>
+      <span class="text-black fw-bolder shadow-sm p-1">{{ vhl.matricule }}</span>
       <span
         ><button
           class="btn btn-primary btn-sm float-end text-warning m-1"
@@ -206,14 +206,16 @@
           <div v-for="commo in vhlo.comment">
             <!-- CommentsVhl -->
 
-            <div class="card my-1" style="max-width: 940px">
+            <div class="card my-1 mx-auto" style="max-width: 800px">
               <div class="row g-0">
                 <div class="col align-self-center ">
-                  <img src="/images/discuter.png" class="img-fluid rounded ms-4" alt="..." style="width: 100px;" />
+                  <img src="/images/discuter.png" class="img-fluid rounded ms-4" alt="..." style="width: 50px;" />
                 </div>
                 <div class="col-md-9">
                   <div class="card-body">
                     <h5 class="card-title">{{ statusList[commo.statu_id]}}</h5>
+                    <!-- <h5>{{ _.flattenDepth(statusList) }}</h5> -->
+                    
                     <p class="card-text">
                         {{ commo.comment }}
                     </p>
@@ -243,6 +245,7 @@ import CommentsVhl from "./CommentsVhl";
 import UpdateVhlModal from "./UpdateVhlModal";
 import visiteTech from '../../components/papiers/VisiteTech';
 
+
 //import commentVhl from "./../../commentVhl.vue";
 
 export default {
@@ -271,6 +274,7 @@ export default {
     vhl() {
       return (this.vhl = this.base.base.filter((x) => x.id == this.$route.params.id));
     },
+
 
     // getListStatus() {
     //   console.log("getListStatus");
@@ -337,6 +341,14 @@ export default {
     //this.getListStatus;
    // await this.base.fetchBase();
    this.vhl_id = this.$route.params.id;
-  }}</script>
+  },
+updated(){
+    this.vhl_id = this.$route.params.id;
+}
+
+
+
+
+}</script>
 
 <style></style>

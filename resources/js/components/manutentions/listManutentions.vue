@@ -21,7 +21,7 @@
             class="text-decoration-none"
             :to="{
               name: 'OneVhlView',
-              params: { id: chariot.matricule },
+              params: { id: chariot.id },
             }"
             >{{ chariot.matricule }}</router-link
           >

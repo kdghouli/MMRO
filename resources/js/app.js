@@ -9,7 +9,7 @@ import 'animate.css';
 
 
 
-//import "lodash";
+import "lodash";
 
 
 
