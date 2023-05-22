@@ -73,7 +73,7 @@ export const useBasesStore = defineStore("bases", {
       state.status.forEach((x) => lista.set(x.id, x.name));
       const arr = Array.from(lista);
       console.log({... _.valuesIn(arr)})
-    return {...arr}
+      return {...arr}
         },
 
         optionIntitules(state){
