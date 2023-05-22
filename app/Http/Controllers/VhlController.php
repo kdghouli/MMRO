@@ -29,7 +29,7 @@ class VhlController extends Controller
     public function index()
     {
 
-        return VhlResource::collection(Vhl::with(['agence', 'categorie', 'intitule', 'statu', 'comment'])->get());
+        return VhlResource::collection(Vhl::with(['agence', 'categorie', 'intitule', 'statu','comment'])->get());
     }
 
     public function ListAgences()

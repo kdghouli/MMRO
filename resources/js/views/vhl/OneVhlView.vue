@@ -82,6 +82,7 @@
 
             </ul>
           </div>
+          <!-- fin card historique -->
         </div>
 
         <!-- Modal commentaire -->
@@ -194,7 +195,7 @@
             </div>
           </div>
         </div>
-            <!-- fin modal -->
+            <!-- fin Modal commentaire -->
 
 
 
@@ -215,9 +216,9 @@
                   <div class="card-body">
                     <h5 class="card-title">{{ statusList[commo.statu_id]}}</h5>
                     <!-- <h5>{{ _.flattenDepth(statusList) }}</h5> -->
-                    
+
                     <p class="card-text">
-                        {{ commo.comment }}
+                        {{ commentairesAll }}
                     </p>
                     <p class="card-text">
                       <small class="text-muted">{{ getHumanDate(commo.created_at) }}</small>
@@ -258,6 +259,7 @@ export default {
       base: useBasesStore(),
       agenceName: "",
       comments: {},
+      commentairesAll:useBasesStore().fetchComments,
       comment: "",
       nbComments: "",
       componentComment: false,
@@ -272,8 +274,12 @@ export default {
   },
   computed: {
     vhl() {
+        this.vhl_id = this.$route.params.id
       return (this.vhl = this.base.base.filter((x) => x.id == this.$route.params.id));
     },
+    commentaireVhlId(){
+      return  (this.commentaireVhlId = this.commentairesAll.filter((x)=> x.vhl_id ==this.$route.params.id))
+    }
 
 
     // getListStatus() {
@@ -341,10 +347,10 @@ export default {
     //this.getListStatus;
    // await this.base.fetchBase();
    this.vhl_id = this.$route.params.id;
+   await this.base.fetchComments();
+
   },
-updated(){
-    this.vhl_id = this.$route.params.id;
-}
+
 
 
 
