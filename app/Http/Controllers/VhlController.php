@@ -5,14 +5,16 @@ namespace App\Http\Controllers;
 use App\Vhl;
 use App\Statu;
 use App\Agence;
+use App\Visite;
 use App\Comment;
-use Illuminate\Http\Request;
-use App\Http\Resources\VhlResource;
-use App\Http\Resources\ListResource;
 use App\Intitule;
 use App\Kilometrage;
-use App\Visite;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Http\Resources\VhlResource;
 use Illuminate\Support\Facades\Log;
+use App\Http\Resources\ListResource;
+
 class VhlController extends Controller
 {
     /**
@@ -29,7 +31,11 @@ class VhlController extends Controller
     public function index()
     {
 
-        return VhlResource::collection(Vhl::with(['agence', 'categorie', 'intitule', 'statu','comment'])->get());
+        return VhlResource::collection(Vhl::with(['comment'=> function($query){
+                $query->orderBy('created_at','desc');
+        }
+        ])
+        ->get());
     }
 
     public function ListAgences()
@@ -38,7 +44,9 @@ class VhlController extends Controller
     }
     public function ListComments()
     {
-        return ListResource::collection(Comment::with('vhl')->get());
+
+        return Comment::All()->groupBy('vhl_id')->count('vhl_id');
+        //return ListResource::collection(Comment::with('vhl')->get());
     }
 
     public function ListStatus()
