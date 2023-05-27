@@ -3,7 +3,7 @@
         <nav-bar />
     </div>
 
-    <div class="row">
+    <div class="row p-3">
         <!-- <router-view v-slot="{ Component }">
             <transition name="fade">
                 <component :is="Component" />

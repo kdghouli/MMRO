@@ -8,7 +8,7 @@
   <div class="my-1 bg-primary-50 bg-gradient shadow p-1 border border-1 rounded">
     <h3 class="p-2 fw-semibold border border-danger text-center shadow-sm rounded">
       Fiche de Véhicule Immatriculé :
-      <span class="text-black fw-bolder shadow-sm p-1">{{ vhl.matricule }}</span>
+      <span class="text-black fw-bolder shadow-sm">{{ vhl[0].matricule }}</span>
       <span
         ><button
           class="btn btn-primary btn-sm float-end text-warning m-1"
@@ -218,7 +218,7 @@
                     <!-- <h5>{{ _.flattenDepth(statusList) }}</h5> -->
 
                     <p class="card-text">
-                        {{ commentairesAll }}
+                        {{ commo.comment }}
                     </p>
                     <p class="card-text">
                       <small class="text-muted">{{ getHumanDate(commo.created_at) }}</small>
@@ -240,18 +240,18 @@
 </template>
 
 <script>
+
 import { useBasesStore } from "../../store/bases.js";
 import moment from 'moment';
-import CommentsVhl from "./CommentsVhl";
 import UpdateVhlModal from "./UpdateVhlModal";
 import visiteTech from '../../components/papiers/VisiteTech';
 
 
-//import commentVhl from "./../../commentVhl.vue";
+
 
 export default {
      components: {
-    CommentsVhl,UpdateVhlModal,visiteTech
+    UpdateVhlModal,visiteTech
   },
 
   data() {
@@ -259,7 +259,8 @@ export default {
       base: useBasesStore(),
       agenceName: "",
       comments: {},
-      commentairesAll:useBasesStore().fetchComments,
+      vhl:{},
+      //commentairesAll:useBasesStore().fetchComments,
       comment: "",
       nbComments: "",
       componentComment: false,
@@ -277,9 +278,9 @@ export default {
         this.vhl_id = this.$route.params.id
       return (this.vhl = this.base.base.filter((x) => x.id == this.$route.params.id));
     },
-    commentaireVhlId(){
-      return  (this.commentaireVhlId = this.commentairesAll.filter((x)=> x.vhl_id ==this.$route.params.id))
-    }
+    // commentaireVhlId(){
+    //   return  (this.commentaireVhlId = this.commentairesAll.filter((x)=> x.vhl_id ==this.$route.params.id))
+    // }
 
 
     // getListStatus() {

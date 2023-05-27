@@ -2,7 +2,7 @@
   <!-- Camions -->
 
   <p class="pt-2">
-      Nombre des
+      Nombre des &MediumSpace;
       <span class="fw-bolder"
         ><span><i class="bi bi-truck"></i></span> Camions: </span
       ><span class="badge rounded-pill bg-success ms-1">
@@ -19,9 +19,9 @@
               camion.statu_id!==1,
           }"
         >
-          <i class="bi bi-truck"></i>
+          <i class="bi bi-truck text-dark me-2"></i>
           <router-link
-            class="link-opacity-50-hover text-decoration-none  fw-bold "
+            class="link-opacity-50-hover text-decoration-none fw-bold "
             :class="{
             ['link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover ']:
               camion.statu_id!==1,
