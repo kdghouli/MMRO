@@ -28,16 +28,16 @@
   {{ voiture.utilisateur }}
 </div>
 <div id="about_big">
-  {{ voiture.marque }}
+  {{ voiture.marque.toUpperCase() }}
 </div>
 
 
 
 
-         <img v-if="voiture.statu_id==2" src="images/1x/statu_2.png" style="width: 31px;" class="ms-auto animate__animated animate__headShake animate__slow animate__infinite" alt="">
-         <img v-else-if="voiture.statu_id==3" src="images/1x/statu_3.png" style="width: 31px;" class="ms-auto animate__animated animate__headShake animate__slower animate__infinite" alt="">
-         <img v-else-if="voiture.statu_id==4" src="images/1x/statu_4.png" style="width: 31px;" class="ms-auto animate__animated animate__headShake animate__slow animate__infinite" alt="">
-         <img v-else-if="voiture.statu_id==5" src="images/1x/statu_5.png" style="width: 31px;" class="ms-auto animate__animated animate__fadeIn animate__fast animate__infinite" alt="">
+         <img v-if="voiture.statu_id==2" src="images/1x/statu_2.png" style="width: 30px; z-index: 10;" class=" ms-auto animate__animated animate__headShake animate__slow animate__infinite" alt="">
+         <img v-else-if="voiture.statu_id==3" src="images/1x/statu_3.png" style="width: 30px; z-index: 10;" class="ms-auto animate__animated animate__headShake animate__slower animate__infinite" alt="">
+         <img v-else-if="voiture.statu_id==4" src="images/1x/statu_4.png" style="width: 30px; z-index: 10;" class="ms-auto animate__animated animate__headShake animate__slow animate__infinite" alt="">
+         <img v-else-if="voiture.statu_id==5" src="images/1x/statu_5.png" style="width: 30px; z-index: 10;" class="ms-auto animate__animated animate__fadeIn animate__fast animate__infinite" alt="">
         </li>
       </ul>
     </div>
@@ -67,7 +67,6 @@ export default {
   position: relative;
   top: 0;
   left: 0;
-  color: #f7f7f7;
 
 }
 
@@ -75,7 +74,7 @@ export default {
   z-index: 3;
   font-family: Arial;
   font-size: 32px;
-  color: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.2);
   overflow: hidden;
   font-weight:bold;
   bottom: -33%;

@@ -10,12 +10,12 @@
       </span>
     </p>
 
-    <div class="row row-cols-lg-3 row-cols-md-2">
+    <div class="row row-cols-lg-3 row-cols-md-2 about_box">
       <ul v-for="camion in camionsMat" class="list-group" :key="camion">
         <li
           class="list-group-item list-group-item-action d-flex justify-content-between align-items-center list-group-item-success mb-1 shadow-sm"
           :class="{
-            ['bg-danger fw-bold text-light h5 ']:
+            ['bg-danger fw-bold text-light ']:
               camion.statu_id!==1,
           }"
         >
@@ -32,11 +32,17 @@
           <span class="fw-lighter ms-4 me-auto align-bottom">{{
             camion.intitule.name?camion.intitule.name:"ok"
           }}</span>
-         <img v-if="camion.statu_id==2" src="images/1x/statu_2.png" style="width: 32px;" class="animate__animated animate__headShake animate__slow animate__infinite" alt="">
-         <img v-else-if="camion.statu_id==3" src="images/1x/statu_3.png" style="width: 32px;" class="animate__animated animate__headShake animate__slower animate__infinite" alt="">
-         <img v-else-if="camion.statu_id==4" src="images/1x/statu_4.png" style="width: 32px;" class="animate__animated animate__headShake animate__slow animate__infinite" alt="">
-         <img v-else-if="camion.statu_id==5" src="images/1x/statu_5.png" style="width: 32px;" class="animate__animated animate__fadeIn animate__fast animate__infinite" alt="">
 
+          <div id="about_small" >
+  {{ camion.agence.name }}
+</div>
+<div id="about_big">
+  {{ camion.marque.toUpperCase() }}
+</div>
+          <img v-if="camion.statu_id==2" src="images/1x/statu_2.png" style="width: 30px; z-index: 10;" class=" ms-auto animate__animated animate__headShake animate__slow animate__infinite" alt="">
+         <img v-else-if="camion.statu_id==3" src="images/1x/statu_3.png" style="width: 30px; z-index: 10;" class="ms-auto animate__animated animate__headShake animate__slower animate__infinite" alt="">
+         <img v-else-if="camion.statu_id==4" src="images/1x/statu_4.png" style="width: 30px; z-index: 10;" class="ms-auto animate__animated animate__headShake animate__slow animate__infinite" alt="">
+         <img v-else-if="camion.statu_id==5" src="images/1x/statu_5.png" style="width: 30px; z-index: 10;" class="ms-auto animate__animated animate__fadeIn animate__fast animate__infinite" alt="">
         </li>
 
       </ul>
@@ -56,3 +62,35 @@ export default {
 }
 </script>
 
+
+
+<style scoped>
+.about_box {
+  z-index: 5;
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+#about_small {
+  z-index: 2;
+  position: relative;
+  top: 0;
+  left: 0;
+
+}
+
+#about_big {
+  z-index: 3;
+  font-family: Arial;
+  font-size: 32px;
+  color: rgba(250, 250, 250, 0.247);
+  overflow: hidden;
+  font-weight:bold;
+  bottom: -28%;
+  right: 2px;
+
+  position: absolute;
+}
+</style>
