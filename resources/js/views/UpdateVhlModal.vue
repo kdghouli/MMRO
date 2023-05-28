@@ -143,7 +143,7 @@
 </template>
 
 <script>
-import { useBasesStore } from "../../store/bases.js";
+import { useBasesStore } from "../store/bases.js";
 export default {
     nam: "updatevhl",
     props: {

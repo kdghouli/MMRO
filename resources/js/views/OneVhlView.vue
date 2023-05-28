@@ -11,12 +11,12 @@
       <span class="text-black fw-bolder shadow-sm">{{ vhl[0].matricule }}</span>
       <span
         ><button
-          class="btn btn-primary btn-sm float-end text-warning m-1"
+          class="btn btn-primary btn float-end text-warning m-1"
           type="button"
           data-bs-toggle="modal"
           data-bs-target="#staticBackdrop"
         >
-          Réclamation
+          Réclamation / Avis
         </button></span
       >
     </h3>
@@ -34,7 +34,7 @@
             class="btn btn-outline-warning my-auto btn-sm float-end align-items-center"
              id="show-modal" @click="showModal = true"
           >
-            Edit
+            Modifier
           </button>
         </h4>
 
@@ -241,10 +241,10 @@
 
 <script>
 
-import { useBasesStore } from "../../store/bases.js";
+import { useBasesStore } from "../store/bases.js";
 import moment from 'moment';
 import UpdateVhlModal from "./UpdateVhlModal";
-import visiteTech from '../../components/papiers/VisiteTech';
+import visiteTech from '../components/papiers/VisiteTech';
 
 
 

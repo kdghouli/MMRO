@@ -180,7 +180,7 @@
 </template>
 
 <script>
-import { useBasesStore} from "./../../store/bases.js";
+import { useBasesStore} from "./../store/bases.js";
 export default {
 props:['statusList','intituleListe','agencaList'],
 

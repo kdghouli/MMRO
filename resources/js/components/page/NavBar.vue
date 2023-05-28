@@ -23,7 +23,9 @@
           <li class="nav-item">
             <router-link class="nav-link" to="/chariots">Chariots</router-link>
           </li>
-
+          <li class="nav-item">
+            <router-link class="nav-link" to="/papiers">Papiers</router-link>
+          </li>
 
 
 

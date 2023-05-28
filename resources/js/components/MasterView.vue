@@ -221,7 +221,7 @@ import listCamions from "./camions/listCamions.vue";
 import listVoitures from "./voitures/listVoitures.vue"
 import listManutentions from "./manutentions/listManutentions.vue"
 import listScooters from "./scooters/listScooters.vue"
-import CreationVhlModal from "../views/vhl/CreationVhlModal.vue";
+import CreationVhlModal from "../views/CreationVhlModal.vue";
 
 export default {
     components:{listCamions,listVoitures,listManutentions,listScooters,CreationVhlModal},
