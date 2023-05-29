@@ -31,6 +31,7 @@
         "vue-axios": "^3.4.1",
         "vue-loader": "^17.0.0",
         "vue-router": "^4.0.13",
-        "vue-template-compiler": "^2.6.10"
+        "vue-template-compiler": "^2.6.10",
+        "vue3-easy-data-table": "^1.5.42"
     }
 }

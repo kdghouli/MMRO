@@ -11,7 +11,8 @@ import 'animate.css';
 
 import "lodash";
 
-
+import Vue3EasyDataTable from 'vue3-easy-data-table';
+import 'vue3-easy-data-table/dist/style.css';
 
 //Vue 3
 
@@ -27,6 +28,7 @@ import VueAxios from 'vue-axios';
 
 
 createApp(App)
+.component('EasyDataTable', Vue3EasyDataTable)
 .use(router)
 .use(createPinia())
 .use(VueAxios, axios)
