@@ -1,40 +1,77 @@
 <template>
-    <EasyDataTable
-      :headers="headers"
-      :items="items"
-    />
-  </template>
 
-  <script>
 
-  import { Header, Item } from "vue3-easy-data-table";
-  
 
-  export default {
+  <br/>
+
+  <span>search value: </span>
+  <input type="text" v-model="searchValue">
+
+     row clicked:<br />
+  <div id="row-clicked"></div>
+    <EasyDataTable v-model:items-selected="itemsSelected" @click-row="showRow" show-index buttons-pagination :headers="headers" :items="items" alternating border-cell :search-field="searchField"
+    :search-value="searchValue"  :sort-by="sortBy" :sort-type="sortType"   >
+        <template #expand="item">
+            <div style="padding: 8px" v-for=" comi in (item.comment)">{{ comi.comment }}</div>
+        </template>
+    </EasyDataTable>
+</template>
+
+<script>
+
+
+import { useBasesStore } from "../store/bases.js";
+import EasyDataTable from "vue3-easy-data-table"
+
+export default {
     components: {
-      EasyDataTable: window['vue3-easy-data-table'],
+        EasyDataTable,
     },
-    data () {
-      return {
-        headers: [
-          { text: "PLAYER", value: "player" },
-          { text: "TEAM", value: "team"},
-          { text: "NUMBER", value: "number"},
-          { text: "POSITION", value: "position"},
-          { text: "HEIGHT", value: "indicator.height"},
-          { text: "WEIGHT (lbs)", value: "indicator.weight", sortable: true},
-          { text: "LAST ATTENDED", value: "lastAttended", width: 200},
-          { text: "COUNTRY", value: "country"},
-        ],
-        items: [
-          { player: "Stephen Curry", team: "GSW", number: 30, position: 'G', indicator: {"height": '6-2', "weight": 185}, lastAttended: "Davidson", country: "USA"},
-          { player: "Lebron James", team: "LAL", number: 6, position: 'F', indicator: {"height": '6-9', "weight": 250}, lastAttended: "St. Vincent-St. Mary HS (OH)", country: "USA"},
-          { player: "Kevin Durant", team: "BKN", number: 7, position: 'F', indicator: {"height": '6-10', "weight": 240}, lastAttended: "Texas-Austin", country: "USA"},
-          { player: "Giannis Antetokounmpo", team: "MIL", number: 34, position: 'F', indicator: {"height": '6-11', "weight": 242}, lastAttended: "Filathlitikos", country: "Greece"},
-        ],
-      }
+    data() {
+        return {
+            headers:
+                [
+                    { text: "MATRICULE", value: "matricule",fixed: true, width: 150 },
+                    { text: "MARQUE", value: "marque" ,fixed: true, width: 150},
+                    { text: "AGENCE", value: "agence.name",sortable: true },
+                    { text: "INTITULE", value: "intitule.name" },
+                    { text: "CATEGORIE", value: "categorie.name" },
+                    { text: "ETAT", value: "statu.name" },
+                    { text: "UTILISATEUR", value: "utilisateur" },
+
+                ],
+            //items:[],
+            base:useBasesStore(),
+            searchField:["matricule", "agence.name"],
+            searchValue :''
+
+
+        }
     },
-  };
+    computed:{
+            items(){
+                return this.base.base
+            },
+
+    },
+
+    methods:{
+
+        showRow(item) {
+             document.getElementById('row-clicked').innerHTML = JSON.stringify(item)
+    }},
+
+
+   async mounted() {
+        await this.base.fetchBase();
+
+
+
+
+
+
+    },
+};
 
 </script>
 
