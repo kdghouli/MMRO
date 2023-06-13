@@ -10,10 +10,10 @@
       </span>
     </p>
 
-    <div class="row row-cols-lg-3 row-cols-md-2 about_box">
+    <div class="row row-cols-lg-3 row-cols-md-2" data-bs-theme="light">
       <ul v-for="camion in camionsMat" class="list-group" :key="camion">
         <li
-          class="list-group-item list-group-item-action d-flex justify-content-between align-items-center list-group-item-success mb-1 shadow-sm"
+          class="list-group-item list-group-item-action list-group-item-success d-flex justify-content-between align-items-center mb-1 shadow-sm"
           :class="{
             ['bg-danger fw-bold text-light ']:
               camion.statu_id!==1,

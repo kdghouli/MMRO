@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" data-bs-theme="dark">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" >
 
 <head>
     <meta charset="utf-8">
@@ -28,7 +28,7 @@
 
 <body class="container-fluid bg-light">
 
-    <div id="app">
+    <div id="app" data-bs-theme="light">
 
 
 

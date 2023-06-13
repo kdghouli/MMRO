@@ -1,9 +1,9 @@
 require('./bootstrap');
+window.Vue = require('vue');
 
-
-//import "bootstrap/dist/css/bootstrap.min.css"
-//import "./bootstrap" ;
-import 'bootswatch/dist/flatly/bootstrap.min.css'; // Added this :boom:
+import "bootstrap/dist/css/bootstrap.min.css"
+import "./bootstrap" ;
+import 'bootswatch/dist/sandstone/bootstrap.min.css'; // Added this :boom:
 import 'animate.css';
 
 
