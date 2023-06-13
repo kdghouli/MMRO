@@ -242,7 +242,7 @@ class VhlController extends Controller
      */
     public function destroy(Vhl $vhl)
     {
-        //
+        $vhl->delete();
     }
     // public function searchposts($query){
     //     $posts = Post::where('title','like','%'.$query.'%')->with('user');

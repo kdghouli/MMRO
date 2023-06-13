@@ -123,7 +123,10 @@
                             v-model="utilisateur"
                         />
                     </div>
-
+                    <div class="form-check form-switch">
+                    <input class="form-check-input " type="checkbox" role="switch" id="flexSwitchCheckChecked" v-model="btnDelete" >
+                    <label class="form-check-label" for="flexSwitchCheckChecked">Supprimer vehicule</label>
+                    </div>
                     <div class="modal-footer">
                         <button
                             type="button"
@@ -143,6 +146,8 @@
 </template>
 
 <script>
+
+import axios from "axios";
 import { useBasesStore } from "../store/bases.js";
 export default {
     nam: "updatevhl",
@@ -150,13 +155,16 @@ export default {
         show: Boolean,
         vhlo: String,
         vhl: Object,
+
     },
     data() {
         return {
             url: "/modifia/" + this.vhl[0].id,
+            urlSupr: "/api/vhls/" + this.vhl[0].id,
             statusList: useBasesStore().optionStatus,
             intituleListe: useBasesStore().optionIntitules,
             agencaList: useBasesStore().optionAgences,
+            btnDelete:false,
 
 
             matricule: this.vhl[0].matricule,
@@ -175,33 +183,41 @@ export default {
         UpdateVhl() {
             console.log("updateVhl");
             // const vhl = this;
+if( this.btnDelete == false){
 
-            axios
-                .put(
-                    this.url,
-                    {
-                        matricule:this.matricule,
-                        marque: this.marque,
-                        date_mc: this.date_mc,
-                        agence_id: this.agence_id,
-                        statu_id: this.statu_id,
-                        intitule_id: this.intitule_id,
-                        categorie_id: this.categorie_id,
-                        utilisateur: this.utilisateur,
-                    },{
+    axios
+        .put(
+            this.url,
+            {
+                matricule:this.matricule,
+                marque: this.marque,
+                date_mc: this.date_mc,
+                agence_id: this.agence_id,
+                statu_id: this.statu_id,
+                intitule_id: this.intitule_id,
+                categorie_id: this.categorie_id,
+                utilisateur: this.utilisateur,
+            },{
 
-                        headers: { 'Content-Type': 'application/json' }
-                    }
-                )
-                .then((res) => {
-                    console.log(res);
-                })
-                .then(() => this.$router.push("/"))
-                .catch((err) => console.log(err.message));
+                headers: { 'Content-Type': 'application/json' }
+            }
+        )
+        .then((res) => {
+            console.log(res);
+        })
+        .then(() => this.$router.push("/"))
+        .catch((err) => console.log(err.message));
 
-            console.log("updateVhl - ok");
-        },
-    },
+    console.log("updateVhl - ok");
+}else{
+    axios.delete(this.urlSupr)
+.then(response =>
+           console.log(response))
+
+.then(() => this.$router.push("/"))
+
+
+    }}},
 };
 </script>
 
