@@ -60,6 +60,9 @@
             <li><hr class="dropdown-divider"></li>
             <router-link class="dropdown-item" data-bs-toggle="modal"
           data-bs-target="#staticBackdrop" to="#">Création Véhicule</router-link>
+          <router-link class="dropdown-item" data-bs-toggle="modal"
+          data-bs-target="#staticBackdrop" to="#">Maintenance preventive</router-link> <router-link class="dropdown-item" data-bs-toggle="modal"
+          data-bs-target="#staticBackdrop" to="#">Maintenance curative</router-link>
           </ul>
         </li>
 

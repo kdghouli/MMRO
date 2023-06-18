@@ -24,9 +24,9 @@
  <!-- selected -->
 
     <div class="row mt-4 justify-content-center">
-      <h3 class="col-md-3 offset-md-4 fw-bolder">Liste de Parc :</h3>
+      <h3 class="col-md-3 offset-md-1 fw-bolder">Liste de Parc :</h3>
       <div class="col-4 ">
-        <select class="form-select fs-5 " v-model="Selected" @click="filterMatricule">
+        <select class="form-select" v-model="Selected" @click="filterMatricule">
           <option value="0" selected>Tous</option>
           <option v-for="agence in agencaList" :key="agence" :value="agence[0]">
             {{ agence[1] }}
@@ -361,6 +361,12 @@ export default {
 
 
    async mounted() {
+    Swal.fire(
+  'Bien sûr!',
+  'Vous êtes le bienvenu pour la liberté de visiter. !',
+  'success'
+)
+
 
     await this.base.fetchBase();
     await this.base.fetchComments();
