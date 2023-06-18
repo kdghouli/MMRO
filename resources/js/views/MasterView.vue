@@ -217,11 +217,11 @@
 <script>
 
 import { useBasesStore} from "../store/bases.js";
-import listCamions from "./camions/listCamions.vue";
-import listVoitures from "./voitures/listVoitures.vue"
-import listManutentions from "./manutentions/listManutentions.vue"
-import listScooters from "./scooters/listScooters.vue"
-import CreationVhlModal from "../views/CreationVhlModal.vue";
+import listCamions from "../components/camions/listCamions.vue";
+import listVoitures from "../components//voitures/listVoitures.vue"
+import listManutentions from "../components//manutentions/listManutentions.vue"
+import listScooters from "../components//scooters/listScooters.vue"
+import CreationVhlModal from "./CreationVhlModal.vue";
 
 export default {
     components:{listCamions,listVoitures,listManutentions,listScooters,CreationVhlModal},

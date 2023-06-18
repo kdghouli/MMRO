@@ -244,7 +244,7 @@
 import { useBasesStore } from "../store/bases.js";
 import moment from 'moment';
 import UpdateVhlModal from "./UpdateVhlModal";
-import visiteTech from '../components/papiers/VisiteTech';
+import visiteTech from '../components/papiers/visiteTechnique/VisiteTech';
 
 
 

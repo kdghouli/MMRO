@@ -9,7 +9,10 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
             <router-link class="nav-link active " aria-current="page" to="/"
-              >Home</router-link>
+              >Fleet</router-link>
+        </li>
+        <li class="nav-item">
+            <router-link class="nav-link" to="/anomalies">Anomalies</router-link>
         </li>
         <li class="nav-item">
             <router-link class="nav-link" to="/camions">Camions</router-link>
@@ -23,19 +26,37 @@
           <li class="nav-item">
             <router-link class="nav-link" to="/chariots">Chariots</router-link>
           </li>
-          <li class="nav-item">
-            <router-link class="nav-link" to="/papiers">Papiers</router-link>
+
+
+          <li class="nav-item dropdown">
+            <router-link class="nav-link dropdown-toggle" to="/papiers" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Papiers
+            </router-link>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><router-link class="dropdown-item" to="contrats">Visite Technique</router-link></li>
+              <li><router-link class="dropdown-item" to="accidents">Carte Grise</router-link></li>
+              <li><router-link class="dropdown-item" to="accidents">Tachygraphe</router-link></li>
+              <li><router-link class="dropdown-item" to="accidents">Permis de circuler</router-link></li>
+              <li><router-link class="dropdown-item" to="accidents">Taxe a l'essieu</router-link></li>
+              <li><router-link class="dropdown-item" to="accidents">Assurance</router-link></li>
+              <li><router-link class="dropdown-item" to="accidents">Extincteur de feu</router-link></li>
+
+
+
+
+
+            </ul>
           </li>
-
-
 
         <li class="nav-item dropdown">
           <router-link class="nav-link dropdown-toggle" to="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Suivi
           </router-link>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Accident</a></li>
+            <li><router-link class="dropdown-item" to="contrats">Contrat de location</router-link></li>
+            <li><router-link class="dropdown-item" to="accidents">Accidents</router-link></li>
             <li><a class="dropdown-item" href="#">Plan annuel</a></li>
+            <li><a class="dropdown-item" href="#">Contrôles réglementaires annuels</a></li>
             <li><hr class="dropdown-divider"></li>
             <router-link class="dropdown-item" data-bs-toggle="modal"
           data-bs-target="#staticBackdrop" to="#">Création Véhicule</router-link>
