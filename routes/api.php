@@ -32,5 +32,7 @@ Route::post('/comment/create' ,'VhlController@storeComment');
 
 Route::get('visite','VhlController@getVisite');
 
+Route::get('anomalies','VhlController@getAnomalies');
+
 
 

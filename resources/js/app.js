@@ -1,10 +1,12 @@
 require('./bootstrap');
 window.Vue = require('vue');
 
-import "bootstrap/dist/css/bootstrap.min.css"
+
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./bootstrap" ;
 import 'bootswatch/dist/sandstone/bootstrap.min.css'; // Added this :boom:
 import 'animate.css';
+
 
 
 
@@ -40,6 +42,7 @@ import 'vue3-easy-data-table/dist/style.css';
 import{createApp} from "vue";
 import { createPinia } from 'pinia';
 import router from "./router";
+
 import App from './App.vue';
 //import PostIndex from "./components/PostIndex.vue";
 
@@ -49,6 +52,8 @@ import VueAxios from 'vue-axios';
 
 
 createApp(App)
+
+
 .component('EasyDataTable', Vue3EasyDataTable)
 .use(router)
 .use(createPinia())

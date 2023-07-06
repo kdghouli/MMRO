@@ -289,6 +289,12 @@ class VhlController extends Controller
 
     return ListResource::collection(Visite::all());
 
-   }
+
+}
+public function getAnomalies (){
+
+ return ListResource::collection(Vhl::where('statu_id','>',1)->get());
+
+}
 
 }
