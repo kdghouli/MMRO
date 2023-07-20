@@ -373,7 +373,7 @@ export default {
     await this.base.fetchIntitules();
     await this.base.fetchStatus();
     await this.base.fetchAgences();
-    this.agencaList = useBasesStore().optionAgences;
+    
 
     this.filterMatricule;
 
