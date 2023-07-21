@@ -10,12 +10,13 @@
           {{ header.text }}
         </div>
       </template>
-      <template #item-categorie.name="{ teamName, teamUrl }">
-        <img src="../../../public/images/birdo.jpg" width="20" >
 
-      </template>
       <template #expand="item">
           <div style="padding: 6px" v-for=" comi in (item.comment)"> <img :src="`images/1x/statu_${comi.statu_id}.png`" width="28" alt="" class="me-2">{{ comi.comment }}</div>
+
+      </template>
+      <template #item-categorie.name="{categorie_id }">
+        <img src="../../../public/images/birdo.jpg" width="20" >{{categorie_id}}
 
       </template>
   </EasyDataTable>
