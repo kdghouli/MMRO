@@ -1,16 +1,16 @@
 import { createRouter, createWebHistory } from "vue-router";
 
-import Camion from "../views/vhl/category/Camion.vue";
-import Voiture from "../views/vhl/category/Voiture.vue";
-import Scooter from "../views/vhl/category/Scooter.vue";
-import Chariot from "../views/vhl/category/Chariot.vue";
-import MasterView from "../components/MasterView.vue"
+import Camion from "../views/category/Camion.vue";
+import Voiture from "../views/category/Voiture.vue";
+import Scooter from "../views/category/Scooter.vue";
+import Chariot from "../views/category/Chariot.vue";
+import MasterView from "../views/MasterView.vue";
+import Contrats from "../components/contrats/listContrats.vue"
+import Accidents from "../components/accidents/listAccidents.vue"
+import Anomalies from "../views/Anomalies.vue";
 
-
-
-
-import OneVhlView from "../views/vhl/OneVhlView.vue";
-
+import OneVhlView from "../views/OneVhlView.vue";
+import Papiers from "../views/Papiers.vue";
 
 
 
@@ -47,9 +47,25 @@ const routes = [
         path: "/:id",
         name: "OneVhlView",
         component: OneVhlView,
+    }, {
+        path: "/papiers",
+        name: "papiers",
+        component: Papiers,
+    }, {
+        path: "/contrats",
+        name: "contrats",
+        component: Contrats,
+    }, {
+        path: "/accidents",
+        name: "accidents",
+        component: Accidents,
     },
 
-
+    {
+        path: "/anomalies",
+        name: "anomalies",
+        component: Anomalies,
+    }
 
 
 

@@ -19,6 +19,7 @@ export const useBasesStore = defineStore("bases", {
         searchIn:'',
         vhl: {},
         agenca: [],
+        anomalies:[]
     }),
 
     // ######################################################
@@ -225,8 +226,20 @@ export const useBasesStore = defineStore("bases", {
             }
         },
 
+        async fetchAnomalies() {
 
+            try {
+                console.log('"fetchAnomalies - BasesPinia"')
+                const resp = await axios.get("/api/anomalies")
+                this.anomalies = resp.data;
+                console.log(this.anomalies)
+            } catch (error) {
+                console.log(error)
 
+            }
+        },
+
+       
 
         //    async getAgencesList(){
         //     const agences = new Set();

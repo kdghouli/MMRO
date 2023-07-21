@@ -242,7 +242,7 @@ class VhlController extends Controller
      */
     public function destroy(Vhl $vhl)
     {
-        //
+        $vhl->delete();
     }
     // public function searchposts($query){
     //     $posts = Post::where('title','like','%'.$query.'%')->with('user');
@@ -289,6 +289,12 @@ class VhlController extends Controller
 
     return ListResource::collection(Visite::all());
 
-   }
+
+}
+public function getAnomalies (){
+
+ return ListResource::collection(Vhl::where('statu_id','>',1)->get());
+
+}
 
 }
