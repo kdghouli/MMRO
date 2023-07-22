@@ -1,22 +1,23 @@
 
 <template>
-
+{{ items.comment }}
 <div id="row-clicked"></div>
   <EasyDataTable v-model:items-selected="itemsSelected" @click-row="showRow" show-index buttons-pagination :headers="headers" :items="items"  alternating border-cell
     :sort-by="sortBy" :sort-type="sortType" table-class-name="customize-table"  >
-    <template #header-matricule="header">
+    <!-- <template #header-matricule="header">
         <div class="customize-header">
-          <img src="../../../public/images/birdo.jpg" width="20"  class="header-icon">
+          <img src="images/categories/1.png" width="36"  class="header-icon">
           {{ header.text }}
         </div>
-      </template>
+      </template> -->
 
       <template #expand="item">
-          <div style="padding: 6px" v-for=" comi in (item.comment)"> <img :src="`images/1x/statu_${comi.statu_id}.png`" width="28" alt="" class="me-2">{{ comi.comment }}</div>
+          <div style="padding: 6px" v-for=" comi in (item.comment)"> <img :src="`images/1x/statu_${comi.statu_id}.png`"
+           width="28" alt="" class="me-2">{{ comi.comment }} ---> <span>{{ comi.created_at }}</span></div>
 
       </template>
       <template #item-categorie.name="{categorie_id }">
-        <img src="../../../public/images/birdo.jpg" width="20" >{{categorie_id}}
+        <img :src="`images/categories/${categorie_id}.png`" width="47" >
 
       </template>
   </EasyDataTable>
